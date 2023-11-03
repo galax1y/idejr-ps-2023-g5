@@ -11,6 +11,7 @@ import { StarterInformation } from '../starter-information'
 import Agua from '@img/agua'
 import Planta from '@img/planta'
 import Fogo from '@img/fogo'
+
 import { getElementJSON } from '@/utils/get-element-info'
 import { getBorderClassByType } from '@/utils/borderUtils'
 
@@ -32,9 +33,14 @@ export default function StarterSection() {
   const activeElementJSON = getElementJSON(element)
 
   return (
-    <section className='mx-4 flex min-h-screen flex-1 snap-start flex-col items-center justify-center text-idePurple lg:mx-[72px]'>
+    <section
+      id='start'
+      className='mx-4 flex min-h-screen flex-1 snap-start flex-col items-center justify-center text-idePurple lg:mx-[72px]'
+    >
+      {/* Se algum elemento estiver selecionado, renderiza isso */}
       {element === null && <StarterInformation />}
 
+      {/* Se nenhum elemento estiver selecionado, renderiza isso */}
       {element !== null && <StarterGrid element={element} />}
 
       {/* Choose element */}
@@ -63,17 +69,19 @@ export default function StarterSection() {
           />
         </div>
 
+        {/* Se nenhum elemento estiver selecionado, renderiza isso */}
         {element === null && (
           <div
-            className={
-              borderStyles.pixelCorners +
-              ' flex flex-1 items-center justify-center ' +
-              borderStyles.purple
-            }
+            className={`
+              flex flex-1 items-center justify-center
+              ${borderStyles.pixelCorners}
+              ${getBorderClassByType(element)}
+            `}
           >
             <Link
               className='flex h-full w-full items-center justify-center'
-              href={'https://idejr.com.br'}
+              href='https://idejr.com.br'
+              target='_blank'
             >
               <Image
                 alt=''
@@ -86,13 +94,14 @@ export default function StarterSection() {
           </div>
         )}
 
+        {/* Se algum elemento estiver selecionado, renderiza isso */}
         {element !== null && (
           <div
-            className={
-              borderStyles.pixelCornersDescription +
-              ' ml-8 flex h-[120px] flex-1 -translate-y-4 items-center justify-center self-start px-10 py-6  ' +
-              getBorderClassByType(element)
-            }
+            className={`
+              ml-8 flex h-fit flex-1 -translate-y-4 items-center justify-center self-start px-10 py-6
+              ${borderStyles.pixelCornersDescription}
+              ${getBorderClassByType(element)}
+            `}
           >
             <p className='text-justify text-xs tracking-tight text-black md:text-sm'>
               {activeElementJSON.description}

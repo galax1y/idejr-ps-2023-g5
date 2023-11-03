@@ -18,10 +18,7 @@ export default function Page() {
   return (
     // Estrutura da página
     <div
-      className={
-        'h-screen w-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth text-white ' +
-        pokemonFont.className
-      }
+      className={`h-screen w-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth text-white ${pokemonFont.className}`}
     >
       <Header />
       <HomeSection />

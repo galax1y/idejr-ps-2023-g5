@@ -1,25 +1,34 @@
-import Styles from "../../styles/home.module.css"
-import Borders from "../../styles/borders.module.css"
+import Link from 'next/link'
+import Image from 'next/image'
 
+import styles from '../../styles/home.module.css'
+import borderStyles from '../../styles/borders.module.css'
 
 export default function HomeSection() {
   return (
-    
-    <section className={Styles.section}>
-        <img
-          className={Styles.img}
-          src="/img/neko-anotando.png"
-        />
-  
-        <div className={Styles.titulo}>
-          <p>POKE</p>
-          <p>
-            <span className={Styles.textoVermelho}>IDE</span>
-          X</p>
-          <div className={Borders.pixelCorners + " " + Borders.white + " " + Styles.botao}>
-              <a href="#" >Start</a>
-          </div>
-        </div>
+    <section id='home' className={styles.section}>
+      <Image
+        alt=''
+        width={704}
+        height={803}
+        className={styles.img}
+        quality={100}
+        priority
+        src='/img/neko-anotando.png'
+      />
+
+      <div className={styles.titulo}>
+        <p className={styles.dropShadow}>POKE</p>
+        <p className={styles.dropShadow}>
+          <span className={styles.textoVermelho}>IDE</span>X
+        </p>
+        <Link
+          className={`${borderStyles.gridElementCorners} ${borderStyles.white} ${styles.botao}`}
+          href='#start'
+        >
+          <span className={styles.dropShadow}>START</span>
+        </Link>
+      </div>
     </section>
   )
 }
