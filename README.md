@@ -18,6 +18,6 @@ Repositório contém a implementação do site requerido no processo seletivo da
 
 ## Instalação:
 
-1. Clonar o projeto;
+1. Clonar o projeto da branch `MAIN` com o comando `git clone -b MAIN https://github.com/galax1y/idejr-ps-2023-g5.git`;
 2. Utilize o comando `npm install` no terminal. (Requer instalação do [Node.js](https://nodejs.org/));
 3. Rode o projeto com `npm run dev` ou `npm run start`;
